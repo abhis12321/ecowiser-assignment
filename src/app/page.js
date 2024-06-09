@@ -5,7 +5,6 @@ import NoteForm from './_component/NoteForm'
 export default function page() {
   return (
     <div>
-      Ecowiser-Assignment
       <NoteForm />
     </div>
   )
