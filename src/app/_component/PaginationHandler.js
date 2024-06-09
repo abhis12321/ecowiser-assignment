@@ -1,7 +1,6 @@
-// src/components/Pagination.js
 import React from 'react';
 
-export default function Pagination({ totalNotes , paginate }) {
+export default function PaginationHandler({ totalNotes , paginate }) {
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalNotes / 6); i++) {
@@ -9,17 +8,17 @@ export default function Pagination({ totalNotes , paginate }) {
     }
 
     return (
-        <nav>
-            <ul className="pagination">
+        <footer>
+            <div className="pagination">
                 {pageNumbers.map((number) => (
-                    <li key={number} className="page-item">
-                        <a onClick={() => paginate(number)} href="!#" className="page-link">
+                    <div key={number} className="page-item">
+                        <p onClick={() => paginate(number)} className="">
                             {number}
-                        </a>
-                    </li>
+                        </p>
+                    </div>
                 ))}
-            </ul>
-        </nav>
+            </div>
+        </footer>
     );
 };
 
