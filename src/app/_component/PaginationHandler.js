@@ -10,10 +10,8 @@ export default function PaginationHandler({ totalNotes, paginate }) {
     return (
         <div className="w-[98%] max-w-[1000px] mx-auto p-2 flex items-center justify-center gap-2 overflow-auto">
             {pageNumbers.map((number) => (
-                <div key={number} className="ring-1 rounded py-2 px-4 w-fit font-semibold hover:bg-green-600/40 hover:ring-violet-600 hover:text-violet-900">
-                    <p onClick={() => paginate(number)} className="">
-                        {number}
-                    </p>
+                <div key={number} onClick={() => paginate(Math.max(6*(number-1) , 0))} className="ring-1 rounded py-2 px-4 w-fit font-semibold hover:bg-green-600/40 hover:ring-violet-600 hover:text-violet-900">
+                    {number}
                 </div>
             ))}
         </div>
