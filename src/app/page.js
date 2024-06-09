@@ -20,8 +20,8 @@ export default function page() {
   }
 
   return (
-    <div>
-      <NoteForm />
+    <div className='h-[100vh] flex flex-col items-center justify-evenly w-full'>
+      {/* <NoteForm /> */}
       <NoteList notes={currentNotes} />
       <PaginationHandler paginate={paginate} totalNotes={notes.length} />
     </div>
