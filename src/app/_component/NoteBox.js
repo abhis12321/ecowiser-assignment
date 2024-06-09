@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Note({note}) {
+export default function NoteBox({note}) {
   return (
     <div>
       <h3 className="">{note.title}</h3>
