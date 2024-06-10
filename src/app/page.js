@@ -32,21 +32,29 @@ export default function page() {
 
   const saveNote = async (note , exist) => {
     if(!exist && exist !== 0) {
-      notes.push(note);
-      let newNote = await axios.post('/api' , note);
-    } else {
-      let newNote = await axios.put('/api' , note);
-      notes[exist] = newNote;
-    }
+      let newNote = await axios.post('/api' , note)
+                              .then(res => res.data)
+                              .catch(error => console.log(error.message));    
+      if(newNote.success) {
+        notes.push(newNote.Note);
+      }
 
-    // console.log(exist , note);
+      console.log(newNote);
+    } else {
+      let newNote = await axios.put('/api' , note)
+                              .then(res => res.data)
+                              .catch(error => console.log(error.message));
+      if(newNote?.success) {
+        notes[exist] = newNote.Note;        
+      }
+    }
     setNotes([...notes]);
   };
 
 
   return (
-    <div className='h-[100vh] flex flex-col items-center justify-evenly w-full'>
-      <button onClick={e => console.log(notes.length)}>LOG</button>
+    <div className='h-[100vh] py-4 gap-4 flex flex-col items-center justify-evenly w-full'>
+      {/* <button onClick={e => console.log(notes.length)}>LOG</button> */}
       {
         newNote ? 
         <NoteForm saveNote={saveNote}  setEditable = {setNewNote} />

@@ -8,7 +8,7 @@ export default function NoteForm({ saveNote, note , setEditable , exist }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         setEditable(false);
-        saveNote({ title, tagline, body, id: note ? note.id : null } , exist);
+        saveNote({...note,  title, tagline, body, id: note ? note.id : null } , exist);
     };
 
     return (
