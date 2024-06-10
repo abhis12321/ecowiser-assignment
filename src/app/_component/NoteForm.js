@@ -12,7 +12,7 @@ export default function NoteForm({ saveNote, note , setEditable , exist }) {
     };
 
     return (
-        <div className="absolute top-0 left-0 h-[100vh] w-[100vw] bg-violet-300/35 flex items-center">
+        <div className="absolute top-0 left-0 z-10 h-[100vh] w-[100vw] bg-violet-300/45 flex items-center">
             <form onSubmit={handleSubmit} className='flex flex-col gap-2 items-center justify-center w-[98%] max-w-[500px] mx-auto p-4 text-violet-800 bg-white rounded-lg' >
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required className='ring-1 w-full p-2 rounded focus:ring-violet-700 border-none outline-none bg-blue-600/10' />
                 <input type="text" value={tagline} onChange={(e) => setTagline(e.target.value)} placeholder="Tagline" required className='ring-1 w-full p-2 rounded focus:ring-violet-700 border-none outline-none bg-blue-600/10' />
